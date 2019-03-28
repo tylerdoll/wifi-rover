@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>H4D Rover</title>
+
+    <style>
+      body {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .drive-btn {
+        display: block;
+        border: 1px solid black;
+        text-align: center;
+        padding: 50px;
+      }
+      .drive-btn:hover {
+        background: #eee;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <br />
+          <div class="card">
+            <h5 class="card-header">Status</h5>
+            <div class="card-body">
+              <p class="card-text">
+                  Connection: <span id="ws-status">Waiting...</span>
+              </p>
+              <button id="connect" class="btn btn-primary">Connect</button>
+              <button id="shutdown" class="btn btn-primary">Shutdown</button>
+            </div>
+          </div>
+
+          <br />
+          <div class="card">
+            <h5 class="card-header">Rover Settings</h5>
+            <div class="card-body">
+              <form id="rover-settings">
+                <div class="form-row">
+                  <div class="col">
+                    <h3>Left</h3>
+                    <div class="form-group">
+                      <label for="speed-left">Speed (Duty Cycle)</label>
+                      <input type="number" class="form-control" id="speed-left" value="100">
+                    </div>
+                    <div class="form-group">
+                      <label for="pwm-freq-left">PWM Frequency</label>
+                      <input type="number" class="form-control" id="pwm-freq-left" value="1000">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <h3>Right</h3>
+                    <div class="form-group">
+                      <label for="speed-right">Speed (Duty Cycle)</label>
+                      <input type="number" class="form-control" id="speed-right" value="100">
+                    </div>
+                    <div class="form-group">
+                      <label for="pwm-freq-right">PWM Frequency</label>
+                      <input type="number" class="form-control" id="pwm-freq-right" value="1000">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+                <h1>Controller</h1>
+            </div>
+          </div>
+          <div class="row text-uppercase font-weight-bolder">
+            <div class="col">
+              <div class="drive-btn" id="rover-forward">Forward</div>
+            </div>
+          </div>
+          <div class="row no-gutters text-uppercase font-weight-bolder">
+            <div class="col"><div class="drive-btn" id="rover-left">Left</div></div>
+            <div class="col"><div class="drive-btn" id="rover-right">Right</div></div>
+          </div>
+          <div class="row text-uppercase font-weight-bolder">
+            <div class="col"><div class="drive-btn" id="rover-backward">Backward</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="{{ static_url("app.js") }}"></script>
+  </body>
+</html>
